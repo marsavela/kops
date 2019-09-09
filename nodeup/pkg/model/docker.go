@@ -545,6 +545,32 @@ var dockerVersions = []dockerVersion{
 		//Recommends: aufs-tools, ca-certificates, cgroupfs-mount | cgroup-lite, git, pigz, xz-utils, apparmor
 	},
 
+	// 18.09.9 - Xenial
+	{
+		DockerVersion: "18.09.9",
+		Name:          "docker-ce",
+		Distros:       []distros.Distribution{distros.DistributionXenial},
+		Architectures: []Architecture{ArchitectureAmd64},
+		Version:       "18.09.9~3-0~ubuntu-xenial",
+		Source:        "https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce_18.09.9~3-0~ubuntu-xenial_amd64.deb",
+		Hash:          "959a1193ff148cbf98c357e096dafca44f497520",
+		Dependencies:  []string{"bridge-utils", "iptables", "libapparmor1", "libltdl7", "perl"},
+		ExtraPackages: map[string]packageInfo{
+			"docker-ce-cli": {
+				Version: "18.09.9~3-0~ubuntu-xenial",
+				Source:  "https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce-cli_18.09.9~3-0~ubuntu-xenial_amd64.deb",
+				Hash:    "b79b8958f041249bbff0afbfeded794a9e42463f",
+			},
+			"containerd.io": {
+				Version: "1.2.6-3",
+				Source:  "https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/containerd.io_1.2.6-3_amd64.deb",
+				Hash:    "a6c9c3014dfe65b685a7e835253a32b5784d5365",
+			},
+		},
+		// Depends: docker-ce-cli, containerd.io, iptables, libseccomp2, libc6, libsystemd0
+		// Recommends: aufs-tools, ca-certificates, cgroupfs-mount | cgroup-lite, git, pigz, xz-utils, libltdl7, apparmor
+	},
+
 	// 17.09.0 - Centos / Rhel7 (two packages)
 	{
 		DockerVersion: "17.09.0",
